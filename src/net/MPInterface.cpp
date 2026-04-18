@@ -58,10 +58,6 @@ void MPInterface::Set(MPInterfaceType type)
         // Current = std::make_unique<LAN>();
         break;
 
-    case MPInterface_Relay:
-        Current = std::make_unique<RelayMPInterface>();
-        break;
-
     default:
         Current = std::make_unique<DummyMP>();
         break;
