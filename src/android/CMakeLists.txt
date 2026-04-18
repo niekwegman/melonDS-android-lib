@@ -18,6 +18,7 @@ set(ANDROID_SOURCES
         renderer/ScreenshotRenderer.cpp
         renderer/FrameQueue.cpp
         retroachievements/RetroAchievementsManager.cpp
+        RelayMultiplayer.cpp
 
         ../frontend/RewindManager.cpp
         ../frontend/mic_blow.h

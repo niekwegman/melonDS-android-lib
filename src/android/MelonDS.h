@@ -13,6 +13,7 @@
 #include "retroachievements/RALeaderboard.h"
 #include "renderer/FrameQueue.h"
 #include "types.h"
+#include "RelayMultiplayer.h"
 #include "../GPU.h"
 #include <android/asset_manager.h>
 
@@ -70,6 +71,11 @@ namespace MelonDSAndroid {
     extern RewindWindow getRewindWindow();
     extern void stop();
     extern void cleanup();
+
+    // Relay multiplayer API
+    extern void setRelayMultiplayerEnabled(bool enabled);
+    extern void setWifiPacketCallback(melonDS::RelayMPInterface::PacketSentCallback callback);
+    extern void injectWifiPacket(const u8* data, int len);
 }
 
 #endif //MELONDS_MELONDS_H
