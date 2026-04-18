@@ -64,17 +64,8 @@ namespace MelonDSAndroid
     void setup(AndroidCameraHandler* androidCameraHandler, std::shared_ptr<MelonEventMessenger> androidEventMessenger, u32* screenshotBufferPointer, int instanceId)
     {
         cameraHandler = androidCameraHandler;
-<<<<<<< HEAD
         eventMessenger = androidEventMessenger;
         RetroAchievements::RetroAchievementsManager::EventMessenger = androidEventMessenger;
-=======
-        retroAchievementsCallback = raCallback;
-        frameRenderedCallback = androidFrameRenderedCallback;
-        LocalMultiplayer::SetIsMasterInstance(isMasterInstance);
-        RelayMultiplayer::SetIsMasterInstance(isMasterInstance);
-        setupOpenGlContext(glContext);
-        screenshotRenderer = new ScreenshotRenderer(screenshotBufferPointer);
->>>>>>> 50f971c8 (Add RelayMultiplayer module for online multiplayer via WebRTC relay)
 
         auto instanceArgs = BuildArgsFromConfiguration(*currentConfiguration, instanceId);
         if (!instanceArgs.has_value())
