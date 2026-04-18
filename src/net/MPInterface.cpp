@@ -18,7 +18,6 @@
 
 #include "MPInterface.h"
 #include "LocalMP.h"
-#include "../android/RelayMultiplayer.h"
 // #include "LAN.h"
 
 namespace melonDS
@@ -69,6 +68,12 @@ void MPInterface::Set(MPInterfaceType type)
     }
 
     CurrentType = type;
+}
+
+void MPInterface::SetCustom(std::unique_ptr<MPInterface> impl)
+{
+    Current = std::move(impl);
+    CurrentType = MPInterface_Dummy;
 }
 
 }

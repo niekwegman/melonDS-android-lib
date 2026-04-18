@@ -1,4 +1,5 @@
 #include <cstring>
+#include <memory>
 #include <utility>
 #include <android/asset_manager.h>
 #include <oboe/Oboe.h>
@@ -388,7 +389,7 @@ namespace MelonDSAndroid
     void setRelayMultiplayerEnabled(bool enabled)
     {
         if (enabled)
-            melonDS::MPInterface::Set(melonDS::MPInterface_Relay);
+            melonDS::MPInterface::SetCustom(std::make_unique<melonDS::RelayMPInterface>());
         else
             melonDS::MPInterface::Set(melonDS::MPInterface_Local);
     }

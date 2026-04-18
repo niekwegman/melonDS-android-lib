@@ -306,12 +306,6 @@ int MP_SendAck(u8* data, int len, u64 timestamp, void* userdata);
 int MP_RecvHostPacket(u8* data, u64* timestamp, void* userdata);
 u16 MP_RecvReplies(u8* data, u64 timestamp, u16 aidmask, void* userdata);
 
-// Relay multiplayer extensions (Android only)
-void MP_SetRelayMode(bool enabled);
-void MP_SetRelayPacketSentCallback(RelayMultiplayer::PacketSentCallback callback);
-void MP_InjectRelayPacket(const u8* data, int len);
-
-
 // network comm interface
 // packet type: Ethernet (802.3)
 int Net_SendPacket(u8* data, int len, void* userdata);

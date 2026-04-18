@@ -32,7 +32,6 @@ enum MPInterfaceType
     MPInterface_Local,
     MPInterface_LAN,
     MPInterface_Netplay,
-    MPInterface_Relay,
 };
 
 struct MPPacketHeader
@@ -52,6 +51,7 @@ public:
     static MPInterface& Get() { return *Current; }
     static MPInterfaceType GetType() { return CurrentType; }
     static void Set(MPInterfaceType type);
+    static void SetCustom(std::unique_ptr<MPInterface> impl);
 
     [[nodiscard]] int GetRecvTimeout() const noexcept { return RecvTimeout; }
     void SetRecvTimeout(int timeout) noexcept { RecvTimeout = timeout; }
