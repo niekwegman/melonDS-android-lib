@@ -382,7 +382,7 @@ namespace MelonDSAndroid
         if (enabled)
         {
             melonDS::MPInterface::SetCustom(std::make_unique<melonDS::RelayMPInterface>());
-            melonDS::MPInterface::Get().SetRecvTimeout(50);
+            melonDS::MPInterface::Get().SetRecvTimeout(0);
         }
         else
             melonDS::MPInterface::Set(melonDS::MPInterface_Local);
