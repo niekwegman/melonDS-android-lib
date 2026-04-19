@@ -380,7 +380,10 @@ namespace MelonDSAndroid
     void setRelayMultiplayerEnabled(bool enabled)
     {
         if (enabled)
+        {
             melonDS::MPInterface::SetCustom(std::make_unique<melonDS::RelayMPInterface>());
+            melonDS::MPInterface::Get().SetRecvTimeout(50);
+        }
         else
             melonDS::MPInterface::Set(melonDS::MPInterface_Local);
     }

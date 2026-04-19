@@ -39,12 +39,15 @@ void RelayMPInterface::InjectPacket(const u8* data, int len)
     if (type == 2)
     {
         std::lock_guard<std::mutex> lock(sReplyMutex);
+        // Drop oldest if queue is full to prevent latency spiral
+        if (sReplyQueue.size() >= 16) sReplyQueue.pop();
         sReplyQueue.push(std::move(buf));
         sReplyCv.notify_one();
     }
     else
     {
         std::lock_guard<std::mutex> lock(sPacketMutex);
+        if (sPacketQueue.size() >= 32) sPacketQueue.pop();
         sPacketQueue.push(std::move(buf));
         sPacketCv.notify_one();
     }
